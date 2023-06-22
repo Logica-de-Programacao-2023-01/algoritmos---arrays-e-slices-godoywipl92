@@ -1,0 +1,36 @@
+package main
+
+import (
+	"fmt"
+	"bufio"
+	"os"
+	"strconv"
+)
+
+func main() {
+	fmt.Print("Informe o tamanho do slice: ")
+	reader := bufio.NewReader(os.Stdin)
+	sizeInput, _ := reader.ReadString('\n')
+	sizeInput = sizeInput[:len(sizeInput)-1] 
+
+	size, _ := strconv.Atoi(sizeInput)
+	slice := make([]int, size)
+
+	for i := 0; i < size; i++ {
+		fmt.Printf("Informe o valor do elemento %d: ", i+1)
+		elementInput, _ := reader.ReadString('\n')
+		elementInput = elementInput[:len(elementInput)-1]
+
+		element, _ := strconv.Atoi(elementInput)
+		slice[i] = element
+	}
+
+	fmt.Println("O slice informado é:", slice)
+
+	soma := 0
+	for _, valor := range slice {
+		soma += valor
+	}
+
+	fmt.Println("A soma dos valores no slice é:", soma)
+}
