@@ -1,0 +1,14 @@
+package main
+
+import "fmt"
+
+func main() {
+	array := [10]int{2, 7, 4, 9, 6, 3, 5, 8, 1, 10} 
+  sum := 0
+  for i, value := range array {
+		if i%2 == 0 { 
+			sum += value 
+		}
+	}
+fmt.Println("Soma dos elementos nas posições pares:", sum)
+}
