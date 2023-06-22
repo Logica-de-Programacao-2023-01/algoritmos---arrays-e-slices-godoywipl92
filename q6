@@ -1,0 +1,35 @@
+package main
+
+import (
+	"fmt"
+	"bufio"
+	"os"
+	"strconv"
+)
+
+func main() {
+	array := [10]int{5, 8, 12, 3, 7, 10, 6, 2, 9, 1}
+
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Print("Informe um valor a ser buscado: ")
+	valueInput, _ := reader.ReadString('\n')
+	valueInput = valueInput[:len(valueInput)-1] 
+
+	value, _ := strconv.Atoi(valueInput)
+
+	found := false
+
+	for _, element := range array {
+		if element == value {
+			found = true
+			break
+		}
+	}
+
+	if found {
+		fmt.Println("O valor está presente no array.")
+	} else {
+		fmt.Println("O valor não está presente no array.")
+	}
+}
