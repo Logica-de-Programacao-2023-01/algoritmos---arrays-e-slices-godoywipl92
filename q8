@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+	"bufio"
+	"os"
+	"strings"
+)
+
+func main() {
+	slice := []string{"maçã", "banana", "uva", "laranja", "abacaxi", "banana", "pera", "banana"} 
+
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Print("Informe um valor: ")
+	value, _ := reader.ReadString('\n')
+	value = strings.TrimSpace(value)
+
+	updatedSlice := make([]string, 0, len(slice))
+
+	for _, element := range slice {
+		if element != value {
+			updatedSlice = append(updatedSlice, element)
+		}
+	}
+
+	fmt.Println("Slice resultante:", updatedSlice)
+}
