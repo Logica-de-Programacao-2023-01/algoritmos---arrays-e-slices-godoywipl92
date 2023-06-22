@@ -1,0 +1,26 @@
+package main
+
+import (
+	"fmt"
+	"bufio"
+	"os"
+	"strconv"
+)
+
+func main() {
+	array := [6]float64{2.5, 1.0, 3.2, 4.7, 2.1, 5.8} 
+
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Print("Informe um número: ")
+	numberInput, _ := reader.ReadString('\n')
+	numberInput = numberInput[:len(numberInput)-1] 
+
+	number, _ := strconv.ParseFloat(numberInput, 64)
+
+	for i := 0; i < len(array); i++ {
+		array[i] += number
+	}
+
+	fmt.Println("Array resultante:", array)
+}
