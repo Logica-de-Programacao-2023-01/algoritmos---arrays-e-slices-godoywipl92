@@ -1,0 +1,40 @@
+package main
+
+import (
+	"fmt"
+	"bufio"
+	"os"
+	"strconv"
+)
+
+func main() {
+	rows := 3
+	cols := 2
+
+	matrix := make([][]int, rows)
+	for i := range matrix {
+		matrix[i] = make([]int, cols)
+	}
+
+	reader := bufio.NewReader(os.Stdin)
+
+	for i := 0; i < rows; i++ {
+		for j := 0; j < cols; j++ {
+			fmt.Printf("Informe o valor do elemento [%d][%d]: ", i, j)
+			elementInput, _ := reader.ReadString('\n')
+			elementInput = elementInput[:len(elementInput)-1] 
+
+			element, _ := strconv.Atoi(elementInput)
+			matrix[i][j] = element
+		}
+	}
+
+	fmt.Println("A matriz resultante é:")
+
+	for i := 0; i < rows; i++ {
+		for j := 0; j < cols; j++ {
+			fmt.Printf("%d ", matrix[i][j])
+		}
+		fmt.Println()
+	}
+}
