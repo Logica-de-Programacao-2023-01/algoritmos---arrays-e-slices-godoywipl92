@@ -1,6 +1,0 @@
-array = [5, 10, 15] 
-
-soma = sum(array)  
-
-print("A soma dos valores no array é:", soma)  
-
