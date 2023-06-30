@@ -1,0 +1,35 @@
+package main
+
+import "fmt"
+
+func main() {
+	var n int
+
+	fmt.Print("Informe o tamanho do array: ")
+	fmt.Scan(&n)
+
+	array := make([]int, n)
+
+	fmt.Println("Informe os elementos do array:")
+	readArrayElements(array)
+
+	if isSorted(array) {
+		fmt.Println("O array está ordenado em ordem crescente.")
+	} else {
+		fmt.Println("O array não está ordenado em ordem crescente.")
+	}
+}
+func readArrayElements(array []int) {
+	for i := 0; i < len(array); i++ {
+		fmt.Printf("Elemento %d: ", i+1)
+		fmt.Scan(&array[i])
+	}
+}
+func isSorted(array []int) bool {
+	for i := 1; i < len(array); i++ {
+		if array[i] < array[i-1] {
+			return false
+		}
+	}
+	return true
+}

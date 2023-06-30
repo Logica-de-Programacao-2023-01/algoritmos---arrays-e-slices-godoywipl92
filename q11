@@ -1,0 +1,31 @@
+package main
+
+import (
+	"fmt"
+	"bufio"
+	"os"
+	"strconv"
+)
+
+func main() {
+	matrix := [2][3]int{
+		{1, 2, 3},
+		{4, 5, 6},
+	} 
+
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Print("Informe o índice da linha: ")
+	rowInput, _ := reader.ReadString('\n')
+	rowInput = rowInput[:len(rowInput)-1] 
+
+	fmt.Print("Informe o índice da coluna: ")
+	colInput, _ := reader.ReadString('\n')
+	colInput = colInput[:len(colInput)-1] 
+	row, _ := strconv.Atoi(rowInput)
+	col, _ := strconv.Atoi(colInput)
+
+	value := matrix[row][col]
+
+	fmt.Printf("O valor armazenado na posição [%d][%d] é: %d\n", row, col, value)
+}

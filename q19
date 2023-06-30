@@ -1,0 +1,36 @@
+package main
+
+import "fmt"
+
+func main() {
+	var n int
+
+	fmt.Print("Informe o tamanho dos arrays: ")
+	fmt.Scan(&n)
+
+	array1 := make([]int, n)
+	array2 := make([]int, n)
+	sumArray := make([]int, n)
+
+	fmt.Println("Informe os elementos do primeiro array:")
+	readArrayElements(array1)
+
+	fmt.Println("Informe os elementos do segundo array:")
+	readArrayElements(array2)
+
+	sumArrays(array1, array2, sumArray)
+
+	fmt.Println("Array resultante da soma:")
+	fmt.Println(sumArray)
+}
+func readArrayElements(array []int) {
+	for i := 0; i < len(array); i++ {
+		fmt.Printf("Elemento %d: ", i+1)
+		fmt.Scan(&array[i])
+	}
+}
+func sumArrays(array1, array2, sumArray []int) {
+	for i := 0; i < len(array1); i++ {
+		sumArray[i] = array1[i] + array2[i]
+	}
+}
